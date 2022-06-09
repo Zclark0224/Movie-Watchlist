@@ -15,6 +15,7 @@ async function getMovieData(){
     const movieTitle = searchTermInput.value.toLowerCase().split(" ").join("_")
     const searchListRes = await fetch(`http://www.omdbapi.com/?apikey=6f50b1e3&s=${movieTitle}`)
     const searchListData = await searchListRes.json()
+    console.log(searchListData)
 
     //Move this into it's own function?
     movieList = "";
@@ -26,17 +27,26 @@ async function getMovieData(){
         console.log(movieData)
 
         //creating movie divs
-        movieList += `
-            <div class="movie">
-                <img src="${movieData.Poster}">
-                <h3 class="movie-title">${movieData.Title}</h3>
-                <h5 class="movie-title">${movieData.Runtime}</h5>
-                <h5 class="movie-title">⭐${movieData.Ratings[0].Value}</h5>
-                <h5 class="movie-title">${movieData.Genre}</h5>
-                <button id="movie${index}"><i class="fa-solid fa-circle-plus">Watchlist</i></button>
-                <p class="movie-title">${movieData.Plot}</p>
-            </div>
-            `
+        if(movieData.Response === "True"){
+            movieList += `
+                <div class="movie">
+                    <img src="${movieData.Poster}">
+                    <div class="movie-info-container">
+                        <div class="movie-title-container">
+                            <p class="movie-title">${movieData.Title}</p>
+                            <p class="movie-stars">⭐${movieData.Ratings[0].Value}</p>
+                        </div>
+                        <div class="movie-subtext-container">
+                            <p class="movie-runtime">${movieData.Runtime}</p>
+                            <p class="movie-genre">${movieData.Genre}</p>
+                            <button class="movie-button" id="movie${index}"><i class="fa-solid fa-circle-plus"> Watchlist</i></button>
+                        </div>
+                        <p class="movie-plot">${movieData.Plot}</p>
+                    </div>
+                </div>
+                <hr>
+                `
+        }
     }
     movieTitleContainer.innerHTML = movieList
 }

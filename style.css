@@ -62,7 +62,7 @@ a:focus {
 }
   
 .wrap{
-    width: 55%;
+    width: 35%;
     position: absolute;
     top: 25vh;
     left: 50%;
@@ -74,7 +74,6 @@ input[type=text]{
 }
 
 #movie-title-container{
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,4 +97,70 @@ input[type=text]{
 
 .movie {
     color: #fff;
+    height: 200px;
+    width: 80%;
+    display: flex;
+    padding: 0.5em;
+}
+
+.movie-info-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.25em;
+    justify-content: space-evenly;
+}
+
+.movie-title-container{
+    display: flex;
+    align-items: baseline;
+    margin: 0;
+}
+
+.movie-subtext-container {
+    display: flex;
+    margin: 0;
+    align-items: baseline;
+    font-size: 0.75rem;
+}
+
+.movie > img {
+    height: 100%;
+    width: auto;
+}
+
+hr{
+    margin: 3em auto;
+    width: 90%;
+}
+
+.movie-button {
+    margin-left: 3em;
+    height: 1rem;
+    background: none;
+    color: #fff;
+    border: none;
+}
+
+.movie-button:hover,
+.movie-button:active {
+    color: rgba(255, 255, 255, 0.295);
+}
+
+.movie-title {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.movie-genre {
+    margin-left: 3em;
+}
+
+.movie-stars {
+    margin: 0;
+    padding-left: 2em;
+    font-size: 0.75;
+}
+
+.movie-plot {
+    font-size: 0.8rem;
 }
