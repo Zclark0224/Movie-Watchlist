@@ -21,13 +21,13 @@ async function getMovieData(){
     movieList = "";
     for(let index = 0; index < searchListData.Search.length; index++){
         //fetch movie data
-        let title = searchListData.Search[index].Title
-        const titleResponse = await fetch(`http://www.omdbapi.com/?apikey=6f50b1e3&t=${title}`)
+        let movieId = searchListData.Search[index].imdbID
+        const titleResponse = await fetch(`http://www.omdbapi.com/?apikey=6f50b1e3&i=${movieId}`)
         const movieData = await titleResponse.json()
-        console.log(movieData)
+        console.log(movieData.Type)
 
         //creating movie divs
-        if(movieData.Response === "True"){
+        if(movieData.Response === "True" && (movieData.Type == "movie" || movieData.Type == "series")){
             movieList += `
                 <div class="movie">
                     <img src="${movieData.Poster}">
