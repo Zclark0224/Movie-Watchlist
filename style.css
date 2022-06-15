@@ -1,3 +1,7 @@
+html {
+    background-color: #121212f1;
+}
+
 body {
     margin: 0 auto;
     max-width: 700px;
@@ -13,19 +17,40 @@ body {
     position: sticky;
     width: 100%;
     height: 25vh;
-    border: red 1px solid;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-color: #fefefe85;
+    background-size: 100%;
+}
+
+#title {
+    color: #fefefe;
+    text-shadow: 0px 0px 5px #000;
 }
 
 a {
-
     text-decoration: none;
-    color: #fefefe85;
+    color: #fefefe;
+    text-shadow: 0px 0px 1px #000;
 }
 
 a:hover,
 a:focus {
     color: #fff;
     text-decoration: underline;
+}
+
+.index-link {
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 1em;
+    font-weight: 300;
+}
+
+a:hover,
+a:focus {
+    color: #fefefe85;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .search {
@@ -73,7 +98,30 @@ input[type=text]{
     background-color: #2E2E2F;
 }
 
-#movie-title-container{
+.pick-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+}
+
+.pick-for-me-btn {
+    background: transparent;
+    text-align: center;
+    color: #fff;
+    border: 3px solid #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.5em 1em;
+    transition: all .4s;
+}
+
+.pick-for-me-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+#movie-title-container,
+#watchlist-movie-title-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,7 +145,7 @@ input[type=text]{
 
 .movie {
     color: #fff;
-    height: 200px;
+    height: 250px;
     width: 80%;
     display: flex;
     padding: 0.5em;
@@ -107,7 +155,8 @@ input[type=text]{
     display: flex;
     flex-direction: column;
     margin-left: 1.25em;
-    justify-content: space-evenly;
+    justify-content: center;
+    width: 100%;
 }
 
 .movie-title-container{
@@ -118,9 +167,10 @@ input[type=text]{
 
 .movie-subtext-container {
     display: flex;
-    margin: 0;
+    margin-top: 2em;
     align-items: baseline;
     font-size: 0.75rem;
+    width: 100%;
 }
 
 .movie > img {
@@ -130,16 +180,18 @@ input[type=text]{
 }
 
 hr{
-    margin: 3em auto;
+    margin: 2em auto;
     width: 90%;
 }
 
 .movie-button {
-    margin-left: 3em;
     height: 1rem;
     background: none;
     color: #fff;
     border: none;
+    font-weight: 300;
+    margin-left: auto;
+    cursor: pointer;
 }
 
 .movie-button:hover,
@@ -152,16 +204,19 @@ hr{
     font-size: 1.25rem;
 }
 
-.movie-genre {
-    margin-left: 3em;
+.movie-genre{
+    margin: 0 auto;
 }
 
 .movie-stars {
     margin: 0;
     padding-left: 2em;
     font-size: 0.75;
+    font-weight: 300;
 }
 
 .movie-plot {
     font-size: 0.8rem;
+    font-weight: 300;
+    color: #A5A5A5;
 }

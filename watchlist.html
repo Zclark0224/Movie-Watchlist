@@ -11,10 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8d0574531c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="renderWatchlist()">
     <div id="header">
         <h1 id="title">My Watchlist</h1>
         <a href="index.html">Search for movies</a>
+    </div>
+
+    <div class="pick-btn-container">
+        <button class="pick-for-me-btn" id="pick-for-me-btn">Pick for me!</button>
+    </div>
+
+    <div id="watchlist-movie-title-container">
     </div>
 
     <script src="index.js"></script>
