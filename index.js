@@ -31,7 +31,7 @@ if(pickForMeBtn){
 async function getMovieSearch(){
     //get search list from api
     const movieTitleSearch = searchTermInput.value.toLowerCase().split(" ").join("_")
-    const searchListRes = await fetch(`http://www.omdbapi.com/?apikey=6f50b1e3&s=${movieTitleSearch}`)
+    const searchListRes = await fetch(`https://www.omdbapi.com/?apikey=6f50b1e3&s=${movieTitleSearch}`)
     const searchListData = await searchListRes.json()
 
     //return either error message or movies
@@ -42,7 +42,7 @@ async function getMovieSearch(){
         for(let index = 0; index < searchListData.Search.length; index++){
             //fetch movie data
             let movieId = searchListData.Search[index].imdbID
-            const titleResponse = await fetch(`http://www.omdbapi.com/?apikey=6f50b1e3&i=${movieId}`)
+            const titleResponse = await fetch(`https://www.omdbapi.com/?apikey=6f50b1e3&i=${movieId}`)
             const movieData = await titleResponse.json()
 
             createMovieDivs(movieData)
@@ -52,7 +52,7 @@ async function getMovieSearch(){
 }
 
 async function getMovieData(key){
-    const titleResponse = await fetch(`http://www.omdbapi.com/?apikey=6f50b1e3&i=${key}`)
+    const titleResponse = await fetch(`https://www.omdbapi.com/?apikey=6f50b1e3&i=${key}`)
     const movieData = await titleResponse.json()
     return movieData
 }
@@ -108,6 +108,7 @@ async function addToWatchlist(key) {
 async function removeSearched(key) {
     window.localStorage.removeItem(key)
     document.getElementById(`button-container${key}`).innerHTML = buttonDisplay(key)
+    removeFromWatchlist(key)
 }
 
 function renderWatchlist() {
